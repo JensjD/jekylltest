@@ -1,0 +1,3 @@
+baseurl: /jekylltest
+exclude: ['README.MD']
+
