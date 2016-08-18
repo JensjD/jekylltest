@@ -1,27 +1,29 @@
 # Jekyll youtube Thomas Bradley
 ###install
-xcode - command line tools
-homebrew
-brew install ruby - jekyll is built on this
-which gem - where we installed ruby
-gem install jekyll
+-xcode - command line tools
+-homebrew
+-brew install ruby - jekyll is built on this
+-which gem - where we installed ruby
+-gem install jekyll
 ###setting up on github
-create new repository on github
-init with README.md
-create branch: gh-pages
-set this to default, delete master.
-git clone repository to directory.
-create index.html with basic html
-push to git with:
-->git add .
-->git commit -m "comment"
-->git push
-###setting up a Jekyll project
-create _config.yml __
-in config set:
-->baseurl: /myWebSiteName
-->exclude: ['README.md','otherFolder'] 
+-create new repository on github
+-init with README.md
+-create branch: gh-pages
+-set this to default, delete master.
+-git clone repository to directory.
+-create index.html with basic html
+-push to git with:
+>git add .
+>git commit -m "comment"
+>git push
+Quote break.
 
+###setting up a Jekyll project
+-create _config.yml __
+-in config set:
+>baseurl: /myWebSiteName
+>exclude: ['README.md','otherFolder']
+Quote break.
 
 
 ///
