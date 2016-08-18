@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title>jekylltest</title>
+        <link href="{{site.baseurl}}css/common.css" rel="stylesheet">
     </head>
     <body>
         <header>
             <strong>Messing around with Jekyll</Strong>
-            <nav>
-                <ul>
-                    <li><a href="{{site.baseurl}}/index.html">Home</a></li>
-                    <li><a href="{{site.baseurl}}/page2.html">Page2</a></li>
-                </ul>
-            </nav>
+            {% include nav.html navclass='nav-top' %}
         </header>
 
         {{content}}
 
+        <footer>
+            {% include nav.html navclass='nav-bottom' %}
+            <p>interesting stuff</p>
+        </footer>
     </body>
 </html>
