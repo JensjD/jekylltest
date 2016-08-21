@@ -6,7 +6,6 @@ html{
 }
 li{
   list-style-type: none;
-  align-items: baseline;
 }
 
 .current{
@@ -18,4 +17,9 @@ li{
 }
 .nav-bottom{
     font-size: 70%;
+}
+
+img{
+    height:100px;
+    width:100px;
 }

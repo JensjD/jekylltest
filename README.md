@@ -208,4 +208,119 @@ display last to blog posts:
 {% for post in site.categories.news limit:2 %}
 ```
 ### nested layouts
-have a sub-navigation under news nav.
+Have a sub-navigation under news pages nav. We achieve this by creating a layout that extends another layout
+* in \_layouts create news.html
+
+```
+---
+layout: default
+---
+<strong>News</strong>
+<nav>
+  <ul>
+    <li><a href="{{site.baseurl}}/recently-discovered.html">Other</a></li>
+    <li><a href="{{site.baseurl}}/news.html">News</a></li>
+  </ul>
+</nav>
+
+{{content}}
+```
+This extends the default layout and inserts its content into default layout. Now when news.html and recently-discovered.html extend the news.html layout
+```
+---
+layout: news
+---
+```
+ their content is inserted in its content box.
+
+### highlighting navigation on multiple pages
+or statement in nav.html
+> * "{% if page.url == '/news.html' or page.url contains 'recently-discovered' %} current {% endif %}"
+
+can use __==__ or __contains__ keyword.
+
+### nested layouts for a specific content type
+when we click on a blog post we want to see the blogs content and title, create \_layouts/news-article.html:
+```
+---
+layout: news
+---
+
+<h1>{{page.title}}</h1>
+
+{{content}}
+
+```
+all posts should adopt this layout in their yml data. can access other yml data also ie. {{page.source}}
+
+### data files
+can access yml csv and json. create \_data/planet-types.yml file with the following format for each entry.
+```
+- title: Dwarf
+  folder: dwarf
+  content: A **tiny** planet
+```
+to access data in html:
+```
+<ol>
+{% for planet in site.data.planet-types %}
+      <li>
+        <a href="#">{{planet.title}}</a>
+        {{planet.content | markdownify}}
+      </li>
+{% endfor %}
+</ol>
+```
+note the markdownify filter to view as markdown.
+
+### putting pages inside folders
+nice urls: localhost:4000/planets/mars/
+* create planets/index.html
+```
+---
+layout: default
+---
+
+<p>test</p>
+```
+ammend nav.html class; class="{% if page.url contains 'planets' %} current {% endif %}">
+
+### looping over pages
+site.pages selects creates a list of all pages. therefore we use yml data to select specific pages
+* in planets/index.html
+```
+<ul>
+    {% for planet in site.pages %}
+        {% if planet.type == 'dwarf'%}
+        <li>
+            {{planet.title}} 
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+```
+### includes with page loops
+want to extend previous loop to easilly customise for each planet type.
+* create _includes/planet-list.html
+```
+<ul>
+    {% for planet in site.pages %}
+        {% if planet.type == include.type %}
+        <li>
+            {{planet.title}} 
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+```
+now in planets/index.html where ever we want to loop over planets copy:
+```
+{% include planet-list.html type='dwarf' %}
+```
+where type is used to select which pages to display.
+
+### page loop and images
+to connect images within the above loop. need to specify file path. access yml data.
+```
+<img src="{{site.baseurl}}/img/planets/{{planet.image}}" alt="Photo of {{planet.title}}">
+```

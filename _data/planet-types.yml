@@ -1,0 +1,11 @@
+- title: Dwarf
+  folder: dwarf
+  content: A __tiny__ planet
+
+- title: Terrestrial
+  folder: terrestrial
+  content: A __large__ planet
+
+- title: Gas Giant
+  folder: gas-giant
+  content: A __massive__ planet

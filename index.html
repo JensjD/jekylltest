@@ -5,3 +5,15 @@ layout: default
 <h1>Jekyll Yeah</h1>
 <p>ipsum dipsum lorem corim</p>
 <p>ipsum dipsum lorem corim</p>
+
+<h2>Types of planets</h2>
+
+<ol>
+{% for planet in site.data.planet-types %}
+      <li>
+        <a href="#">{{planet.title}}</a>
+        {{planet.content | markdownify}}
+      </li>
+{% endfor %}
+</ol>
+<p>ipsum dipsum lorem corim</p>
