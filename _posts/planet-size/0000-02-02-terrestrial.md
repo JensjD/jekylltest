@@ -1,6 +1,6 @@
 ---
-title: Gas Giant
+title: Dwarf
 category: planet-type
-folder: gas-giant
+folder: dwarf
 ---
 A tiny planet

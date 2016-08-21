@@ -1,3 +1,4 @@
 baseurl: /jekylltest
 exclude: ['README.MD']
+permalink: pretty
 

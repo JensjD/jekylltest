@@ -322,5 +322,13 @@ where type is used to select which pages to display.
 ### page loop and images
 to connect images within the above loop. need to specify file path. access yml data.
 ```
-<img src="{{site.baseurl}}/img/planets/{{planet.image}}" alt="Photo of {{planet.title}}">
+<img {site.baseurl}}/img/planets/{{planet.image}}" alt="Photo of {{planet.title}}">
 ```
+
+### advanced nested layouts for specific content types
+md to html 
+* create a link in planet-list.html within the loop to link to planet data
+```
+<a href="{{site.baseurl}}{{planet.url}}">
+```
+* create planet.html layout that extends default
